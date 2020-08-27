@@ -1,6 +1,11 @@
 import App from "../app"
-import React from "react"
+import React, {
+    MuiThemeProvider, createMuiTheme
+} from "react"
 import ReactDOM from "react-dom"
+import {create} from "jss"
+import {jssPreset,StylesProvider} from "@material-ui/styles"
+
 import {
     dispatch 
 } from "d3-dispatch"
@@ -19,6 +24,14 @@ var initialState = {
     localMode: "chr",
     config: true,
 }
+/*
+const theme = createMuiTheme({
+    props: {}
+})
+*/
+const theme = {}
+console.log("createMuiTheme",createMuiTheme)
+
 class NBTrack3D extends HTMLElement {
     static get name() {
         return "NB Track3D"
@@ -58,11 +71,15 @@ class NBTrack3D extends HTMLElement {
         var _dispatch =  dispatch("update", "brush", "resize", "close", "set3dURL") //dispatch  rules
         var div = document.createElement("div")
         this.appendChild(div)
+        this.jss = create({...jssPreset(),insertionPoint:div});
         var width = 600
         var height =  700
+        var self = this
         ReactDOM.render(
-            <App chan={_dispatch} _state={initialState} width={width} height={height-30}/>,
-            div);
+            (<StylesProvider jss={self.jss}>
+                <App chan={_dispatch} _state={initialState} width={width} height={height-30}/>
+            </StylesProvider>)
+            ,div);
     }
     disconnectedCallback() {}
 }
