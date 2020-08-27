@@ -47,7 +47,7 @@ class NBTrack3D extends HTMLElement {
         this.shadow.innerHTML = `
 		<style>
 			:host{
-             all:initial  
+             all:inherit 
 			}
 		</style>
 		<slot></slot>
