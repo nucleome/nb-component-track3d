@@ -5,6 +5,8 @@ import React, {
 import ReactDOM from "react-dom"
 import {create} from "jss"
 import {jssPreset,StylesProvider} from "@material-ui/styles"
+import retargetEvents from 'react-shadow-dom-retarget-events';
+
 
 import {
     dispatch 
@@ -80,12 +82,14 @@ class NBTrack3D extends HTMLElement {
         var jss = create({..._jssPreset,insertionPoint:div.parentNode.parentNode});
         var width = 600
         var height =  700
+        //TODO wire dispatch ..
         var self = this
         ReactDOM.render(
             (<StylesProvider jss={jss}>
                 <App chan={_dispatch} _state={initialState} width={width} height={height-30}/>
             </StylesProvider>)
             ,div);
+        retargetEvents(this.shadow);
     }
     disconnectedCallback() {}
 }
