@@ -29,13 +29,18 @@ const theme = createMuiTheme({
     props: {}
 })
 */
-const theme = {}
-console.log("createMuiTheme",createMuiTheme)
-
+var _jssPreset = jssPreset()
 class NBTrack3D extends HTMLElement {
+
+
     static get name() {
         return "NB Track3D"
     }
+    /*
+    static initJssPreset() {
+        jssPreset = jssPreset()
+    }
+    */
     constructor() {
         super()
         this.shadow = this.attachShadow({
@@ -71,12 +76,13 @@ class NBTrack3D extends HTMLElement {
         var _dispatch =  dispatch("update", "brush", "resize", "close", "set3dURL") //dispatch  rules
         var div = document.createElement("div")
         this.appendChild(div)
-        this.jss = create({...jssPreset(),insertionPoint:div});
+        //TODO ... only first time works ???
+        var jss = create({..._jssPreset,insertionPoint:div.parentNode.parentNode});
         var width = 600
         var height =  700
         var self = this
         ReactDOM.render(
-            (<StylesProvider jss={self.jss}>
+            (<StylesProvider jss={jss}>
                 <App chan={_dispatch} _state={initialState} width={width} height={height-30}/>
             </StylesProvider>)
             ,div);
