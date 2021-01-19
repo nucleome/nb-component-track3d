@@ -45,7 +45,12 @@ export default function(layout, container, state, app) {
         .style("position", "relative")
         .style("padding", "0px")
     var dispatch = d3_dispatch("update", "brush", "resize", "close", "set3dURL") //dispatch  rules
-
+    layout.eventHub.on("set3dURL", function(d){
+        console.log("get message set 3d URL")
+        if (!inCtrl) {
+            dispatch.call("set3dURL", this , d.url)
+        }
+    })
     layout.eventHub.on("update", function(d) {
         if (!inCtrl) {
             if (d[0].genome && d[0].genome != state.genome) {
