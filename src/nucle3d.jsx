@@ -46,7 +46,8 @@ import rgbToHex from "./tools/rgbToHex"
 import {regionsNiceText,randomString} from "@nucleome/nb-tools"
 
 
-import useStyles from "./styles.js"
+import useStyles from "../../../src/styles.js"
+//import useStyles from "./styles.js"
 
 import {
     overlap

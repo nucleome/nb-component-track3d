@@ -30,7 +30,8 @@ import chromSizes from "./tools/chromSizes.js"
 import bwAgent from "./nbBwAgent"
 import bbAgent from "./nbBbAgent"
 
-import useStyles from "./styles.js"
+import useStyles from "../../../src/styles.js"
+//import useStyles from "./styles.js"
 import {
     dispatch as e3
 } from "d3-dispatch"

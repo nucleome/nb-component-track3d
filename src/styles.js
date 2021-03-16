@@ -11,6 +11,10 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         flexWrap: 'wrap',
     },
+    menuBar: {
+        flexGrow: 1,
+        flexWrap: 'wrap',
+    },
     menubar: {
         flexGrow: 1,
     },
@@ -109,7 +113,29 @@ const useStyles = makeStyles(theme => ({
     legendContent: {
         color: "#666",
         fontSize : 12
+    },
+   toggleButton: {
+        marginLeft: theme.spacing(1),
+        height: 20,
+        width: 20, 
+    },
+    slider: {
+        width:100,
+    },
+    select: {
+        fontSize:12,
+    },
+    menuItem: {
+        fontSize:12,
+    },
+    popover: {
+        height: 'auto',
+    },
+    chip: {
+        fontSize:12,
     }
+
+    
 
 }));
 
