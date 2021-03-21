@@ -163,7 +163,7 @@ export default function ButtonAppBar(props) {
             </Toolbar> :
         <Toolbar variant="dense">
         <Typography variant="h6" className={classes.title}>
-            Structure
+            
           </Typography>
         <Tooltip title="Zoom to 1x" aria-label="zoomToOne"> 
         <IconButton className={classes.iconButton} onClick={handleZoom1}>
