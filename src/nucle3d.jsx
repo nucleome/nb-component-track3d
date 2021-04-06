@@ -48,7 +48,8 @@ import {regionsNiceText,randomString} from "@nucleome/nb-tools"
 
 import useStyles from "../../../src/styles.js"
 //import useStyles from "./styles.js"
-
+//
+import canvasToPng from "./canvasToPng.js"
 import {
     overlap
 } from "./tools/funcs"
@@ -844,6 +845,11 @@ function Nucle3D(props) {
             localEvent.on("zoomToOne.101", function() {
                 if ("viewer" in o) {
                     o.viewer.zoomTo(0.95)
+                }
+            })
+            localEvent.on("print.101", function(){
+                if ("viewer" in o) {
+                    canvasToPng(o.viewer.getCanvas())
                 }
             })
         }

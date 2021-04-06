@@ -212,7 +212,7 @@ function App(props) {
     }
     const [tState, tDispatch] = useReducer(tReducer, tInitState); //TODO Fix _state
     useEffect(function() {
-        setLocalEvent(e3("zoomToOne"))
+        setLocalEvent(e3("zoomToOne","print"))
     }, [])
 
     const handle3DURL = (d) => {
