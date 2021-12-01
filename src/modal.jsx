@@ -5,7 +5,8 @@ import Typography from '@material-ui/core/Typography';
 import {
     makeStyles
 } from '@material-ui/core/styles';
-
+import useStyles from "../../../src/styles.js"
+/*
 const useStyles = makeStyles(theme => ({
     root: {
         '& > *': {
@@ -14,7 +15,7 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         flexWrap: 'wrap',
     },
-    paper: {
+    mpaper: {
         position: 'absolute',
         width: 400,
         backgroundColor: theme.palette.background.paper,
@@ -22,11 +23,12 @@ const useStyles = makeStyles(theme => ({
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
     }
-    ,button: {
+    ,
+    mbutton: {
         fontSize: 14,
     }
 }));
-
+*/
 function rand() {
     return Math.round(Math.random() * 20) - 10;
 }
@@ -53,13 +55,13 @@ function TestModal(props) {
     const handleClose = () => {
         setOpen(false)
     }
-    return (<Typography component="div" className={classes.root}>
-      <Button variant="outlined" onClick={handleOpen} color="inherit" className={classes.button}>Open</Button>
+    return (<Typography component="div" className={classes.mroot}>
+      <Button variant="outlined" onClick={handleOpen} color="inherit" className={classes.mbutton}>Open</Button>
       <Modal open={open} onClose={handleClose}
          aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >
-        <div style={modalStyle} className={classes.paper}>
+        <div style={modalStyle} className={classes.mpaper}>
           <h2 id="simple-modal-title">Text in a modal</h2>
           <p id="simple-modal-description">
             Duis mollis, est non commodo luctus, nisi erat porttitor ligula.

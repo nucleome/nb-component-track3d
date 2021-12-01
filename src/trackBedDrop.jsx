@@ -14,7 +14,8 @@ import {
 import addDrop from "./tools/addDrop";
 
 import CircularProgress from '@material-ui/core/CircularProgress';
-import useStyles from "./styles"
+//import useStyles from "./styles"
+import useStyles from "../../../src/styles"
 import {select} from "d3-selection"
 var colors = {
     "hic": "#DD0000",

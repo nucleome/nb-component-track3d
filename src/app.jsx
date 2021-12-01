@@ -30,7 +30,8 @@ import chromSizes from "./tools/chromSizes.js"
 import bwAgent from "./nbBwAgent"
 import bbAgent from "./nbBbAgent"
 
-import useStyles from "./styles.js"
+import useStyles from "../../../src/styles.js"
+//import useStyles from "./styles.js"
 import {
     dispatch as e3
 } from "d3-dispatch"
@@ -211,7 +212,7 @@ function App(props) {
     }
     const [tState, tDispatch] = useReducer(tReducer, tInitState); //TODO Fix _state
     useEffect(function() {
-        setLocalEvent(e3("zoomToOne"))
+        setLocalEvent(e3("zoomToOne","print"))
     }, [])
 
     const handle3DURL = (d) => {

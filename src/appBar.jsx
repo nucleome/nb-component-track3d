@@ -12,6 +12,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import IconLooks from '@material-ui/icons/Looks';
 import IconConfig from '@material-ui/icons/Build';
 import IconEdit from '@material-ui/icons/Edit';
+import IconPrint from '@material-ui/icons/Print';
 
 import IconLine from './icons/ThreeDLine';
 import IconStick from './icons/ThreeDStick';
@@ -38,6 +39,7 @@ import IconCurrentChr from "@material-ui/icons/Book"
 import IconCurrentRegion from "@material-ui/icons/MenuBook"
 import IconHighlightRegion from "@material-ui/icons/BorderColor"
 
+
 import {
     withStyles
 } from '@material-ui/core/styles';
@@ -45,7 +47,8 @@ import {
     AppContext
 } from "./app"
 
-import useStyles from "./styles"
+//import useStyles from "./styles"
+import useStyles from "../../../src/styles"
 const StyledToggleButtonGroup = withStyles(theme => ({
     grouped: {
         margin: theme.spacing(0.5),
@@ -141,6 +144,10 @@ export default function ButtonAppBar(props) {
             data: false
         })
     }
+    const handlePrint = (e, v) => {
+        localEvent.call("print",this,{})
+    }
+
     return (
         <div className={classes.menubar}>
       <AppBar className={classes.appBar} position="static">
@@ -153,25 +160,37 @@ export default function ButtonAppBar(props) {
             <IconLooks/>
         </IconButton>
         </Tooltip>
-   <Tooltip title="To Regualar Panel View " aria-label="fullPanelView"> 
+        <Tooltip title="To Regualar Panel View " aria-label="fullPanelView"> 
         <IconButton className={classes.iconButton} onClick={handleRegView}>
             <IconRegularView/>
         </IconButton>
         </Tooltip>
+        <Tooltip title="Print to PNG" aria-label="print"> 
+        <IconButton className={classes.iconButton} onClick={handlePrint}>
+            <IconPrint/>
+        </IconButton>
+        </Tooltip>
+
+
  
-            </Toolbar> :
+        </Toolbar> :
         <Toolbar variant="dense">
         <Typography variant="h6" className={classes.title}>
-            Structure
-          </Typography>
+            
+        </Typography>
         <Tooltip title="Zoom to 1x" aria-label="zoomToOne"> 
         <IconButton className={classes.iconButton} onClick={handleZoom1}>
             <IconLooks/>
         </IconButton>
         </Tooltip>
-   <Tooltip title="To Full Panel View " aria-label="fullPanelView"> 
+        <Tooltip title="To Full Panel View " aria-label="fullPanelView"> 
         <IconButton className={classes.iconButton} onClick={handleFullView}>
             <IconFullView/>
+        </IconButton>
+        </Tooltip>
+        <Tooltip title="Print to PNG" aria-label="print"> 
+        <IconButton className={classes.iconButton} onClick={handlePrint}>
+            <IconPrint/>
         </IconButton>
         </Tooltip>
 
@@ -219,6 +238,7 @@ export default function ButtonAppBar(props) {
             <IconAnno  />
             </ToggleButton>
         </Tooltip>
+
 
          <Divider orientation="vertical" className={classes.divider} />
         <StyledToggleButtonGroup
